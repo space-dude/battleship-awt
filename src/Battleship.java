@@ -127,15 +127,10 @@ class Board extends Frame    // this is what you see
     // press the space for firing random shots
     // restart the game by pressing return
     public void keyPressed(KeyEvent e) {
-        int x, y;
         int key = e.getKeyCode();
 
         if ((key == KeyEvent.VK_SPACE) && !EnemyGrid.done) {
-            do {
-                x = Math.abs(rand.nextInt()) % 10;
-                y = Math.abs(rand.nextInt()) % 10;
-            } while (EnemyGrid.shots[x][y] != Grid.blank);
-            EnemyGrid.play(x, y);
+            fireRandomly();
         }
 
         if ((key == 10) || (key == 3)) {
@@ -163,17 +158,21 @@ class Board extends Frame    // this is what you see
             FleetGrid.reset();
             EnemyGrid.reset();
         } else if (target == fireButton) {
-            int x, y;
-
-            do {
-                x = Math.abs(rand.nextInt()) % 10;
-                y = Math.abs(rand.nextInt()) % 10;
-            } while (EnemyGrid.shots[x][y] != Grid.blank);
-            EnemyGrid.play(x, y);
+            fireRandomly();
         } else if (target == quitButton) {
             System.exit(0);
         }
     }
+
+	private void fireRandomly() {
+		int x, y;
+
+		do {
+		    x = Math.abs(rand.nextInt()) % 10;
+		    y = Math.abs(rand.nextInt()) % 10;
+		} while (EnemyGrid.shots[x][y] != Grid.blank && !EnemyGrid.done);
+		EnemyGrid.play(x, y);
+	}
 
 }                               // end Board
 
