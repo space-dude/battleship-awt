@@ -1,10 +1,10 @@
 /*
  *  Jesse Costales.
  *
- *  Battlesip, Part 3 (Playable)
+ *  Battleship, Part 3 (Playable)
  *
  *  Full computer playable version that uses a smart Search and Destroy Algorithm
- *  The is alot of inefficient code, but I did try to make the program object oriented
+ *  The is a lot of inefficient code, but I did try to make the program object oriented
  *  The are four main classes -
  *    Battleship  - the game itself
  *    Board   - the Frame where everything happens
@@ -385,7 +385,7 @@ class Grid extends Canvas implements MouseListener {
         // SEARCH & DESTROY ALOGRITHM
         // if a ship is hit but not sunk, try to destroy it.
         // if all hit ships are sunk, search every other grid for ships.
-        // this alogrithm also uses some random variable to change the search and destroy
+        // this algorithm also uses some random variable to change the search and destroy
         // pattern so that the pattern is unpredictable.
         int x, y;
 
@@ -500,7 +500,7 @@ class Grid extends Canvas implements MouseListener {
             fireShot(x, y);
             return;
         }
-        // just incase the algorithm gets stuck start looking at all grids
+        // just in case the algorithm gets stuck start looking at all grids
         do {
             x = Math.abs(rand.nextInt()) % 10;
             y = Math.abs(rand.nextInt()) % 10;
